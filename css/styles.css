@@ -1,0 +1,13 @@
+body {
+    background-color: #f64;
+}
+
+#board {
+    width: 960px;
+    height: 960px;
+}
+
+.content {
+    background-color: #abc;
+    border: 1px solid #111;
+}
