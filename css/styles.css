@@ -8,14 +8,16 @@ h1 {
     color: #111;
 }
 
-.buttons {
+#buttons {
     margin: auto;
     text-align: center;
-    align-items: center;
 }
 
 #reset {
     margin: 30px;
+    height: 30px;
+    width: 60px;
+    font-size: 14px;
 }
 
 #board {
