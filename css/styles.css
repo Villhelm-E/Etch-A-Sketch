@@ -8,9 +8,9 @@ body {
     border: 1px solid #111;
     display: flex;
     flex-wrap: wrap;
+    margin: auto;
 }
 
 .content {
-    background-color: #abc;
-    /*border: 1px solid #111; */
+    background-color: #eee;
 }
