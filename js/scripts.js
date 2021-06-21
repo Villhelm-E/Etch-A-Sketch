@@ -16,6 +16,6 @@ for (x=0; x<(gridSize**2); x++) {
 //Add mouse enter listener to all squares
 const pixels = document.querySelectorAll(".pixel").forEach(item => {
     item.addEventListener('mouseenter', event => {
-        item.style.backgroundColor = "#111";
+        item.classList.add('etched');
     });
 });
