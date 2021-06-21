@@ -5,9 +5,12 @@ body {
 #board {
     width: 960px;
     height: 960px;
+    border: 1px solid #111;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .content {
     background-color: #abc;
-    border: 1px solid #111;
+    /*border: 1px solid #111; */
 }
