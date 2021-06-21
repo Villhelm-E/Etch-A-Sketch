@@ -49,10 +49,26 @@ function deletePixels() {
 
 //Deletes all pixels, prompts for new board size, and generates pixels
 function resetBoard() {
-    deletePixels();
-
-    gridSize = prompt("Choose a resolution.", 16);
-    setPixels();
+    
+    //data validation
+    do {
+        gridSize = prompt("Choose the side length of the grid. (Up to 100)", 16);
+    }
+    while (isNaN(gridSize) || gridSize > 100 || (gridSize < 1 && gridSize !== null));
+    
+    //handle canceling of prompt
+    if (gridSize === null) {
+        return;
+    } 
+    
+    //Reset the board
+    else {
+        //remove pixels from board
+        deletePixels();
+        
+        //add pixels to board
+        setPixels();
+    }
 }
 
 //Initialize the board for first time

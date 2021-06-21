@@ -11,6 +11,7 @@ h1 {
 .buttons {
     margin: auto;
     text-align: center;
+    align-items: center;
 }
 
 #reset {
