@@ -2,10 +2,12 @@
 const board = document.querySelector('#board');
 var gridSize = 16;
 
+//calculates pixel size and adds them to the board
 function setPixels() {
-    
+    //calculate pixel size
     var squareSize = 960/gridSize;
 
+    //add pixels to board
     for (x=0; x<(gridSize**2); x++) {
         const square = document.createElement('div');
         square.classList.add('pixel');
@@ -13,10 +15,11 @@ function setPixels() {
         square.style.height = squareSize + "px";
         board.appendChild(square);
     }
-
+    //Add mouseenter listener to all pixels
     listen();
 }
 
+//Adds mouseenter listener to all pixels
 function listen() {
     const pixels = document.querySelectorAll(".pixel");
 
@@ -28,6 +31,7 @@ function listen() {
     });
 }
 
+//Removes the 'etched' class from all pixels
 function clearBoard() {
     const pixels = document.querySelectorAll(".pixel");
 
@@ -36,12 +40,14 @@ function clearBoard() {
     })
 }
 
+//removes all pixels from the board
 function deletePixels() {
     while (board.firstChild) {
         board.removeChild(board.lastChild);
     }
 }
 
+//Deletes all pixels, prompts for new board size, and generates pixels
 function resetBoard() {
     deletePixels();
 
@@ -49,5 +55,6 @@ function resetBoard() {
     setPixels();
 }
 
+//Initialize the board for first time
 setPixels();
 listen();
