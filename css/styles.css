@@ -2,6 +2,21 @@ body {
     background-color: #f64;
 }
 
+h1 {
+    text-align: center;
+    font-family: sans-serif;
+    color: #111;
+}
+
+.buttons {
+    margin: auto;
+    text-align: center;
+}
+
+#reset {
+    margin: 30px;
+}
+
 #board {
     width: 960px;
     height: 960px;
