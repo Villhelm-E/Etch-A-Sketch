@@ -9,6 +9,14 @@
         <h1>Etch-A-Sketch</h1>
     
         <div id="buttons">
+            <div id="modes">
+                <input type="radio" id="normal" name="mode" value="normal" checked>
+                <label for="normal">Normal</label>
+
+                <input type="radio" id="darken" name="mode" value="darken">
+                <label for="darken">Darken</label>
+            </div>
+            
             <button id="reset" onClick="resetBoard()">Reset</button>
             <button id="clear" onClick="clearBoard()">Clear</button>
         </div>

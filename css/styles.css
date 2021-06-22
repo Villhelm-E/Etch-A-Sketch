@@ -45,3 +45,43 @@ button:hover {
 .etched {
     background-color: #223;
 }
+
+.ten {
+    background-color: #dadadc;
+}
+
+.twenty {
+    background-color: #c6c6ca;
+}
+
+.thirty {
+    background-color: #b2b2b8;
+}
+
+.forty {
+    background-color: #9e9ea6;
+}
+
+.fifty {
+    background-color: #8a8a94;
+}
+
+.sixty {
+    background-color: #767682;
+}
+
+.seventy {
+    background-color: #626270;
+}
+
+.eighty {
+    background-color: #4e4e5e;
+}
+
+.ninety {
+    background-color: #3a3a4c;
+}
+
+.hundred {
+    background-color: #223;
+}
