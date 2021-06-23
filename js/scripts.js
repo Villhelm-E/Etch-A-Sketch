@@ -28,47 +28,11 @@ function listen() {
     pixels.forEach(item => {
         item.addEventListener('mouseenter', event => {
             //normal draw mode
-            if (mode == "normal") {
-                item.classList.add('etched');
-            }
-            //darken draw mode
-            else if (mode == "darken") {
-                if (!item.classList.contains("ten")) {
-                    item.classList.add("ten");
-                }
-                else if (!item.classList.contains("twenty")) {
-                    item.classList.add("twenty");
-                }
-                else if (!item.classList.contains("thirty")) {
-                    item.classList.add("thirty");
-                }
-                else if (!item.classList.contains("forty")) {
-                    item.classList.add("forty");
-                }
-                else if (!item.classList.contains("fifty")) {
-                    item.classList.add("fifty");
-                }
-                else if (!item.classList.contains("sixty")) {
-                    item.classList.add("sixty");
-                }
-                else if (!item.classList.contains("seventy")) {
-                    item.classList.add("seventy");
-                }
-                else if (!item.classList.contains("eighty")) {
-                    item.classList.add("eighty");
-                }
-                else if (!item.classList.contains("ninety")) {
-                    item.classList.add("ninety");
-                }
-                else if (!item.classList.contains("hundred")) {
-                    item.classList.add("hundred");
-                }
-                else {
-                    //nothing
-                }
+            if (mode == "darken") {
+                darkenListen(item);
             }
             else {
-                item.classList.add('etched');
+                normalListen(item);
             }
         });
     });
@@ -157,11 +121,51 @@ function normalMode() {
     setPixels()
 }
 
+function normalListen(item) {
+    item.classList.add('etched')
+}
+
 //sets board to darken draw mode
 function darkenMode() {
     mode = "darken";
     deletePixels();
     setPixels();
+}
+
+function darkenListen(item) {
+    if (!item.classList.contains("ten")) {
+        item.classList.add("ten");
+    }
+    else if (!item.classList.contains("twenty")) {
+        item.classList.add("twenty");
+    }
+    else if (!item.classList.contains("thirty")) {
+        item.classList.add("thirty");
+    }
+    else if (!item.classList.contains("forty")) {
+        item.classList.add("forty");
+    }
+    else if (!item.classList.contains("fifty")) {
+        item.classList.add("fifty");
+    }
+    else if (!item.classList.contains("sixty")) {
+        item.classList.add("sixty");
+    }
+    else if (!item.classList.contains("seventy")) {
+        item.classList.add("seventy");
+    }
+    else if (!item.classList.contains("eighty")) {
+        item.classList.add("eighty");
+    }
+    else if (!item.classList.contains("ninety")) {
+        item.classList.add("ninety");
+    }
+    else if (!item.classList.contains("hundred")) {
+        item.classList.add("hundred");
+    }
+    else {
+        //nothing
+    }
 }
 
 //Initialize the board for first time
