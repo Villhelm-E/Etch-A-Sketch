@@ -3,6 +3,16 @@ const board = document.querySelector('#board');
 var gridSize = 16;
 var mode = "normal";
 
+//generate a random color
+function randomColor() {
+    var c = '';
+    while (c.length < 6) {
+        c += (Math.random()).toString(16).substr(-6).substr(-1);
+    }
+
+    return '#' + c;
+}
+
 //calculates pixel size and adds them to the board
 function setPixels() {
     //calculate pixel size
@@ -18,45 +28,6 @@ function setPixels() {
     }
     //Add mouseenter listener to all pixels
     listen();
-}
-
-//Adds mouseenter listener to all pixels
-function listen() {
-    const pixels = document.querySelectorAll(".pixel");
-
-    //Add mouse enter listener to all squares
-    pixels.forEach(item => {
-        item.addEventListener('mouseenter', event => {
-            //normal draw mode
-            if (mode == "darken") {
-                darkenListen(item);
-            }
-            else {
-                normalListen(item);
-            }
-        });
-    });
-}
-
-//Removes the 'etched' class from all pixels
-function clearBoard() {
-    const pixels = document.querySelectorAll(".pixel");
-
-    pixels.forEach(item => {
-        //normal draw mode
-        if (mode == "normal") {
-            item.classList.remove('etched');
-        }
-        //darken draw mode
-        else if (mode == "darken") {
-            //remove all classes except pixel
-            item.classList.forEach(class_ => {
-                if (class_ !== "pixel") {
-                    item.classList.remove(class_);
-                }
-            });
-        }
-    });
 }
 
 //removes all pixels from the board
@@ -90,25 +61,63 @@ function resetBoard() {
     }
 }
 
-//set up radio buttons
-const radio = document.querySelectorAll('input[name=mode]');
 
-//add event listeners to radio buttons
-radio.forEach(item => {
-    item.addEventListener('change', event => {
-        //manage draw modes
-        switch (item.id) {
-            case "normal":  
-                normalMode();
-                break;
-            case "darken":
-                darkenMode();
-                break;
-            default:
-                normalMode();
+/////////////////////
+//Add New Draw Modes
+/////////////////////
+
+//Adds mouseenter listener to all pixels
+function listen() {
+    const pixels = document.querySelectorAll(".pixel");
+
+    //Add mouse enter listener to all squares
+    pixels.forEach(item => {
+        item.addEventListener('mouseenter', event => {
+            //normal draw mode
+            if (mode == "darken") {
+                darkenListen(item);
+            }
+            //random draw mode
+            if (mode == "random") {
+                randomListen(item);
+            }
+            //normal draw mode
+            else {
+                normalListen(item);
+            }
+        });
+    });
+}
+
+//Removes the 'etched' class from all pixels
+function clearBoard() {
+    const pixels = document.querySelectorAll(".pixel");
+
+    pixels.forEach(item => {
+        //normal draw mode
+        if (mode == "normal") {
+            item.classList.remove('etched');
+        }
+        //darken draw mode
+        else if (mode == "darken") {
+            //remove all classes except pixel
+            item.classList.forEach(class_ => {
+                if (class_ !== "pixel") {
+                    item.classList.remove(class_);
+                }
+            });
+        }
+        //random draw mode
+        else if (mode == "random") {
+            item.classList.remove('random');
+            item.style.backgroundColor = "#eee";
         }
     });
-});
+}
+
+/////////////////////
+//Draw Mode Functions
+/////////////////////
 
 //sets board to normal draw mode
 function normalMode() {
@@ -117,16 +126,27 @@ function normalMode() {
     setPixels();
 }
 
-//Add Event Listener for normal mode
-function normalListen(item) {
-    item.classList.add('etched');
-}
-
 //sets board to darken draw mode
 function darkenMode() {
     mode = "darken";
     deletePixels();
     setPixels();
+}
+
+//Sets board to random draw mode
+function randomMode() {
+    mode = "random";
+    deletePixels();
+    setPixels();
+}
+
+/////////////////////
+//Event Listener Functions
+/////////////////////
+
+//Add Event Listener for normal mode
+function normalListen(item) {
+    item.classList.add('etched');
 }
 
 //Add Event Listener for darken mode
@@ -165,6 +185,39 @@ function darkenListen(item) {
         alert("Something went wrong with adding darken EventListener");
     }
 }
+
+//Add Event Listener for random mode
+function randomListen(item) {
+    item.classList.add("random");
+    item.style.backgroundColor = randomColor();
+}
+
+/////////////////////
+//On Page Load
+/////////////////////
+
+//set up radio buttons
+const radio = document.querySelectorAll('input[name=mode]');
+
+//add event listeners to radio buttons
+radio.forEach(item => {
+    item.addEventListener('change', event => {
+        //manage draw modes
+        switch (item.id) {
+            case "normal":  
+                normalMode();
+                break;
+            case "darken":
+                darkenMode();
+                break;
+            case "random":
+                randomMode();
+                break;
+            default:
+                normalMode();
+        }
+    });
+});
 
 //Initialize the board for first time
 setPixels();
