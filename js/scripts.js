@@ -60,7 +60,7 @@ function resetBoard() {
         setPixels();
 
         //update resolution text
-        document.getElementById("resolution").textContent = gridSize + " + " + gridSize;
+        document.getElementById("resolution").textContent = gridSize + " X " + gridSize;
     }
 }
 
