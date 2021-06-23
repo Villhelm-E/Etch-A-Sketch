@@ -49,18 +49,14 @@ function clearBoard() {
         }
         //darken draw mode
         else if (mode == "darken") {
-            item.classList.remove("ten");
-            item.classList.remove("twenty");
-            item.classList.remove("thirty");
-            item.classList.remove("forty");
-            item.classList.remove("fifty");
-            item.classList.remove("sixty");
-            item.classList.remove("seventy");
-            item.classList.remove("eighty");
-            item.classList.remove("ninety");
-            item.classList.remove("hundred");
+            //remove all classes except pixel
+            item.classList.forEach(class_ => {
+                if (class_ !== "pixel") {
+                    item.classList.remove(class_);
+                }
+            });
         }
-    })
+    });
 }
 
 //removes all pixels from the board
