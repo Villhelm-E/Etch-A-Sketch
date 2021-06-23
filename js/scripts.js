@@ -118,11 +118,11 @@ radio.forEach(item => {
 function normalMode() {
     mode = "normal";
     deletePixels();
-    setPixels()
+    setPixels();
 }
 
 function normalListen(item) {
-    item.classList.add('etched')
+    item.classList.add('etched');
 }
 
 //sets board to darken draw mode
@@ -164,7 +164,7 @@ function darkenListen(item) {
         item.classList.add("hundred");
     }
     else {
-        //nothing
+        alert("Something went wrong with adding darken EventListener");
     }
 }
 
