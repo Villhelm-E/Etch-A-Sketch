@@ -139,26 +139,26 @@ radio.forEach(item => {
         //manage draw modes
         switch (item.id) {
             case "normal":  
-                normal();
+                normalMode();
                 break;
             case "darken":
-                darken();
+                darkenMode();
                 break;
             default:
-                normal();
+                normalMode();
         }
     });
 });
 
 //sets board to normal draw mode
-function normal() {
+function normalMode() {
     mode = "normal";
     deletePixels();
     setPixels()
 }
 
 //sets board to darken draw mode
-function darken() {
+function darkenMode() {
     mode = "darken";
     deletePixels();
     setPixels();
