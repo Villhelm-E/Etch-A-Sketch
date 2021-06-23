@@ -117,6 +117,7 @@ function normalMode() {
     setPixels();
 }
 
+//Add Event Listener for normal mode
 function normalListen(item) {
     item.classList.add('etched');
 }
@@ -128,6 +129,7 @@ function darkenMode() {
     setPixels();
 }
 
+//Add Event Listener for darken mode
 function darkenListen(item) {
     if (!item.classList.contains("ten")) {
         item.classList.add("ten");
