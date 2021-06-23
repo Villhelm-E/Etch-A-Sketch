@@ -2,7 +2,7 @@ body {
     background-color: #f64;
 }
 
-h1{
+h1, h2{
     text-align: center;
     font-family: sans-serif;
     color: #222;

@@ -58,6 +58,9 @@ function resetBoard() {
         
         //add pixels to board
         setPixels();
+
+        //update resolution text
+        document.getElementById("resolution").textContent = gridSize + " + " + gridSize;
     }
 }
 
